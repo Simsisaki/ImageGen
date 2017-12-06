@@ -37,7 +37,6 @@ def post_output():
         lda_index_post = load_obj('{}_lda_index_post'.format(keyword))    
         lda_index_para = load_obj('{}_lda_index_para'.format(keyword))  
         para_bigram_list = load_obj('{}_para_bigram_list'.format(keyword))
-        
 
         paragraphs = request.form.get('paragraphs').split("\n")
         paragraphs = [re.sub('\s+$','',paragraph) for paragraph in paragraphs]
@@ -45,7 +44,6 @@ def post_output():
         all_images = []
         post = ''
 
-        
         for paragraph in paragraphs:
             post = post + ' ' + paragraph
         post_processed = preprocess_lda_post(post, lemmatizer, stopwords)
